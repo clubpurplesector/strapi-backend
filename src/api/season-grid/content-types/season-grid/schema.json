@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "season_grids",
+  "info": {
+    "singularName": "season-grid",
+    "pluralName": "season-grids",
+    "displayName": "SeasonGrid",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "season": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::season.season"
+    },
+    "chassis": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chassis.chassis"
+    },
+    "driver": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::driver.driver"
+    }
+  }
+}

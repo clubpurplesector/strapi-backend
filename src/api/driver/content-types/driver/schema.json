@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drivers",
+  "info": {
+    "singularName": "driver",
+    "pluralName": "drivers",
+    "displayName": "driver",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "initials": {
+      "type": "string"
+    },
+    "dob": {
+      "type": "date"
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    }
+  }
+}

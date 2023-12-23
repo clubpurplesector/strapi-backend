@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chassiz",
+  "info": {
+    "singularName": "chassis",
+    "pluralName": "chassiz",
+    "displayName": "chassis",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "powerUnit": {
+      "type": "string"
+    },
+    "team": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team.team"
+    },
+    "season": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::season.season"
+    }
+  }
+}

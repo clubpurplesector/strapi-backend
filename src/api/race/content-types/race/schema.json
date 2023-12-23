@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "races",
+  "info": {
+    "singularName": "race",
+    "pluralName": "races",
+    "displayName": "Race",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "grandPrix": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::grand-prix.grand-prix"
+    },
+    "startTime": {
+      "type": "datetime"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

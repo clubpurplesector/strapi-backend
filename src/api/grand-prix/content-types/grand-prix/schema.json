@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grand_prixes",
+  "info": {
+    "singularName": "grand-prix",
+    "pluralName": "grand-prixes",
+    "displayName": "GrandPrix",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "season": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::season.season"
+    },
+    "track": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::track.track"
+    },
+    "length": {
+      "type": "decimal"
+    },
+    "distance": {
+      "type": "decimal"
+    },
+    "laps": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "type": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    }
+  }
+}
