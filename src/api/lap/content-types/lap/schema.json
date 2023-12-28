@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "laps",
+  "info": {
+    "singularName": "lap",
+    "pluralName": "laps",
+    "displayName": "lap",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "race": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::race.race"
+    },
+    "seasonGrid": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::season-grid.season-grid"
+    },
+    "tyre": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tyre.tyre"
+    },
+    "time": {
+      "type": "string"
+    },
+    "sector1": {
+      "type": "string"
+    },
+    "sector2": {
+      "type": "string"
+    },
+    "sector3": {
+      "type": "string"
+    },
+    "lapNumber": {
+      "type": "integer"
+    },
+    "fastestLap": {
+      "type": "boolean"
+    }
+  }
+}

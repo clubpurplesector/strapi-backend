@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pit_stops",
+  "info": {
+    "singularName": "pit-stop",
+    "pluralName": "pit-stops",
+    "displayName": "PitStop",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lap": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lap.lap"
+    },
+    "pitLaneTime": {
+      "type": "string"
+    },
+    "pitStopTime": {
+      "type": "string"
+    },
+    "tyreFrom": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tyre.tyre"
+    },
+    "tyreTo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tyre.tyre"
+    },
+    "race": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::race.race"
+    },
+    "seasonGrid": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::season-grid.season-grid"
+    }
+  }
+}

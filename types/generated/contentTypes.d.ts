@@ -848,6 +848,98 @@ export interface ApiGrandPrixGrandPrix extends Schema.CollectionType {
   };
 }
 
+export interface ApiLapLap extends Schema.CollectionType {
+  collectionName: 'laps';
+  info: {
+    singularName: 'lap';
+    pluralName: 'laps';
+    displayName: 'lap';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    race: Attribute.Relation<'api::lap.lap', 'oneToOne', 'api::race.race'>;
+    seasonGrid: Attribute.Relation<
+      'api::lap.lap',
+      'oneToOne',
+      'api::season-grid.season-grid'
+    >;
+    tyre: Attribute.Relation<'api::lap.lap', 'oneToOne', 'api::tyre.tyre'>;
+    time: Attribute.String;
+    sector1: Attribute.String;
+    sector2: Attribute.String;
+    sector3: Attribute.String;
+    lapNumber: Attribute.Integer;
+    fastestLap: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::lap.lap', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::lap.lap', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPitStopPitStop extends Schema.CollectionType {
+  collectionName: 'pit_stops';
+  info: {
+    singularName: 'pit-stop';
+    pluralName: 'pit-stops';
+    displayName: 'PitStop';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    lap: Attribute.Relation<
+      'api::pit-stop.pit-stop',
+      'oneToOne',
+      'api::lap.lap'
+    >;
+    pitLaneTime: Attribute.String;
+    pitStopTime: Attribute.String;
+    tyreFrom: Attribute.Relation<
+      'api::pit-stop.pit-stop',
+      'oneToOne',
+      'api::tyre.tyre'
+    >;
+    tyreTo: Attribute.Relation<
+      'api::pit-stop.pit-stop',
+      'oneToOne',
+      'api::tyre.tyre'
+    >;
+    race: Attribute.Relation<
+      'api::pit-stop.pit-stop',
+      'oneToOne',
+      'api::race.race'
+    >;
+    seasonGrid: Attribute.Relation<
+      'api::pit-stop.pit-stop',
+      'oneToOne',
+      'api::season-grid.season-grid'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pit-stop.pit-stop',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pit-stop.pit-stop',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRaceRace extends Schema.CollectionType {
   collectionName: 'races';
   info: {
@@ -1131,6 +1223,30 @@ export interface ApiTrackTrack extends Schema.CollectionType {
   };
 }
 
+export interface ApiTyreTyre extends Schema.CollectionType {
+  collectionName: 'tyres';
+  info: {
+    singularName: 'tyre';
+    pluralName: 'tyres';
+    displayName: 'tyre';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    symbol: Attribute.String;
+    image: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tyre.tyre', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tyre.tyre', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1151,6 +1267,8 @@ declare module '@strapi/types' {
       'api::driver.driver': ApiDriverDriver;
       'api::driver-standing.driver-standing': ApiDriverStandingDriverStanding;
       'api::grand-prix.grand-prix': ApiGrandPrixGrandPrix;
+      'api::lap.lap': ApiLapLap;
+      'api::pit-stop.pit-stop': ApiPitStopPitStop;
       'api::race.race': ApiRaceRace;
       'api::race-result.race-result': ApiRaceResultRaceResult;
       'api::season.season': ApiSeasonSeason;
@@ -1159,6 +1277,7 @@ declare module '@strapi/types' {
       'api::team-standing.team-standing': ApiTeamStandingTeamStanding;
       'api::test.test': ApiTestTest;
       'api::track.track': ApiTrackTrack;
+      'api::tyre.tyre': ApiTyreTyre;
     }
   }
 }
