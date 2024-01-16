@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "configs",
+  "info": {
+    "singularName": "config",
+    "pluralName": "configs",
+    "displayName": "Config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "syncDriver": {
+      "type": "boolean"
+    },
+    "syncTeam": {
+      "type": "boolean"
+    },
+    "syncChassis": {
+      "type": "boolean"
+    }
+  }
+}

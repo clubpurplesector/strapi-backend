@@ -720,6 +720,38 @@ export interface ApiChassisChassis extends Schema.CollectionType {
   };
 }
 
+export interface ApiConfigConfig extends Schema.SingleType {
+  collectionName: 'configs';
+  info: {
+    singularName: 'config';
+    pluralName: 'configs';
+    displayName: 'Config';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    syncDriver: Attribute.Boolean;
+    syncTeam: Attribute.Boolean;
+    syncChassis: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::config.config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::config.config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDriverDriver extends Schema.CollectionType {
   collectionName: 'drivers';
   info: {
@@ -742,6 +774,7 @@ export interface ApiDriverDriver extends Schema.CollectionType {
     dob: Attribute.Date;
     nationality: Attribute.String;
     number: Attribute.Integer;
+    numberImage: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -766,6 +799,7 @@ export interface ApiDriverStandingDriverStanding extends Schema.CollectionType {
     singularName: 'driver-standing';
     pluralName: 'driver-standings';
     displayName: 'driverStanding';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -782,6 +816,7 @@ export interface ApiDriverStandingDriverStanding extends Schema.CollectionType {
       'api::season-grid.season-grid'
     >;
     points: Attribute.Decimal;
+    position: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1108,6 +1143,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     logo: Attribute.String;
     city: Attribute.String;
     country: Attribute.String;
+    color: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1146,6 +1182,7 @@ export interface ApiTeamStandingTeamStanding extends Schema.CollectionType {
       'oneToOne',
       'api::chassis.chassis'
     >;
+    position: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1160,29 +1197,6 @@ export interface ApiTeamStandingTeamStanding extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTestTest extends Schema.SingleType {
-  collectionName: 'tests';
-  info: {
-    singularName: 'test';
-    pluralName: 'tests';
-    displayName: 'test';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    test1: Attribute.String;
-    test2: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1264,6 +1278,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::chassis.chassis': ApiChassisChassis;
+      'api::config.config': ApiConfigConfig;
       'api::driver.driver': ApiDriverDriver;
       'api::driver-standing.driver-standing': ApiDriverStandingDriverStanding;
       'api::grand-prix.grand-prix': ApiGrandPrixGrandPrix;
@@ -1275,7 +1290,6 @@ declare module '@strapi/types' {
       'api::season-grid.season-grid': ApiSeasonGridSeasonGrid;
       'api::team.team': ApiTeamTeam;
       'api::team-standing.team-standing': ApiTeamStandingTeamStanding;
-      'api::test.test': ApiTestTest;
       'api::track.track': ApiTrackTrack;
       'api::tyre.tyre': ApiTyreTyre;
     }

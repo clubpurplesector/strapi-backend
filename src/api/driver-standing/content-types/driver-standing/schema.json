@@ -4,7 +4,8 @@
   "info": {
     "singularName": "driver-standing",
     "pluralName": "driver-standings",
-    "displayName": "driverStanding"
+    "displayName": "driverStanding",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,6 +24,9 @@
     },
     "points": {
       "type": "decimal"
+    },
+    "position": {
+      "type": "integer"
     }
   }
 }
