@@ -835,6 +835,50 @@ export interface ApiDriverStandingDriverStanding extends Schema.CollectionType {
   };
 }
 
+export interface ApiFastestLapFastestLap extends Schema.CollectionType {
+  collectionName: 'fastest_laps';
+  info: {
+    singularName: 'fastest-lap';
+    pluralName: 'fastest-laps';
+    displayName: 'FastestLap';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seasonGrid: Attribute.Relation<
+      'api::fastest-lap.fastest-lap',
+      'oneToOne',
+      'api::season-grid.season-grid'
+    >;
+    time: Attribute.String;
+    position: Attribute.Integer;
+    lap: Attribute.Integer;
+    avgSpeed: Attribute.String;
+    race: Attribute.Relation<
+      'api::fastest-lap.fastest-lap',
+      'oneToOne',
+      'api::race.race'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fastest-lap.fastest-lap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fastest-lap.fastest-lap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGrandPrixGrandPrix extends Schema.CollectionType {
   collectionName: 'grand_prixes';
   info: {
@@ -1281,6 +1325,7 @@ declare module '@strapi/types' {
       'api::config.config': ApiConfigConfig;
       'api::driver.driver': ApiDriverDriver;
       'api::driver-standing.driver-standing': ApiDriverStandingDriverStanding;
+      'api::fastest-lap.fastest-lap': ApiFastestLapFastestLap;
       'api::grand-prix.grand-prix': ApiGrandPrixGrandPrix;
       'api::lap.lap': ApiLapLap;
       'api::pit-stop.pit-stop': ApiPitStopPitStop;
