@@ -952,6 +952,7 @@ export interface ApiLapLap extends Schema.CollectionType {
     sector3: Attribute.String;
     lapNumber: Attribute.Integer;
     fastestLap: Attribute.Boolean;
+    pitStop: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
