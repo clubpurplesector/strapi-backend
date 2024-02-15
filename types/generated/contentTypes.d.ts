@@ -909,6 +909,7 @@ export interface ApiGrandPrixGrandPrix extends Schema.CollectionType {
     endDate: Attribute.DateTime;
     type: Attribute.String;
     fullName: Attribute.String;
+    round: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

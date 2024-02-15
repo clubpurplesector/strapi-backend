@@ -45,6 +45,9 @@
     },
     "fullName": {
       "type": "string"
+    },
+    "round": {
+      "type": "string"
     }
   }
 }
