@@ -4,7 +4,8 @@
   "info": {
     "singularName": "race-result",
     "pluralName": "race-results",
-    "displayName": "RaceResult"
+    "displayName": "RaceResult",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -35,6 +36,9 @@
     },
     "points": {
       "type": "decimal"
+    },
+    "dnf": {
+      "type": "boolean"
     }
   }
 }

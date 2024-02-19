@@ -1057,6 +1057,7 @@ export interface ApiRaceResultRaceResult extends Schema.CollectionType {
     singularName: 'race-result';
     pluralName: 'race-results';
     displayName: 'RaceResult';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1077,6 +1078,7 @@ export interface ApiRaceResultRaceResult extends Schema.CollectionType {
     time: Attribute.String;
     fastestLap: Attribute.Boolean;
     points: Attribute.Decimal;
+    dnf: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
