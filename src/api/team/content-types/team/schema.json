@@ -29,9 +29,6 @@
     },
     "country": {
       "type": "string"
-    },
-    "color": {
-      "type": "string"
     }
   }
 }

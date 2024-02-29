@@ -766,7 +766,6 @@ export interface ApiDriverDriver extends Schema.CollectionType {
   attributes: {
     firstName: Attribute.String;
     lastName: Attribute.String;
-    thumbnail: Attribute.String;
     photo: Attribute.String;
     city: Attribute.String;
     country: Attribute.String;
@@ -774,7 +773,6 @@ export interface ApiDriverDriver extends Schema.CollectionType {
     dob: Attribute.Date;
     nationality: Attribute.String;
     number: Attribute.Integer;
-    numberImage: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1155,6 +1153,9 @@ export interface ApiSeasonGridSeasonGrid extends Schema.CollectionType {
       'oneToOne',
       'api::driver.driver'
     >;
+    driverPhoto: Attribute.String;
+    driverNumberImage: Attribute.String;
+    teamColor: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1191,7 +1192,6 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     logo: Attribute.String;
     city: Attribute.String;
     country: Attribute.String;
-    color: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -26,6 +26,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::driver.driver"
+    },
+    "driverPhoto": {
+      "type": "string"
+    },
+    "driverNumberImage": {
+      "type": "string"
+    },
+    "teamColor": {
+      "type": "string"
     }
   }
 }
