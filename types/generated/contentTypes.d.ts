@@ -766,7 +766,6 @@ export interface ApiDriverDriver extends Schema.CollectionType {
   attributes: {
     firstName: Attribute.String;
     lastName: Attribute.String;
-    photo: Attribute.String;
     city: Attribute.String;
     country: Attribute.String;
     initials: Attribute.String;
