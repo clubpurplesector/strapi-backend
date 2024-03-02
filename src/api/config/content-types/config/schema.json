@@ -4,21 +4,37 @@
   "info": {
     "singularName": "config",
     "pluralName": "configs",
-    "displayName": "Config"
+    "displayName": "Config",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "syncDriver": {
+    "driverTeamTrackSeasonTyre": {
+      "type": "text"
+    },
+    "grandPrixRace": {
+      "type": "text"
+    },
+    "chassisSeasonGrid": {
+      "type": "text"
+    },
+    "imageFromServer": {
       "type": "boolean"
     },
-    "syncTeam": {
+    "apiFromServer": {
       "type": "boolean"
     },
-    "syncChassis": {
-      "type": "boolean"
+    "driverStandingsForSeasonJson": {
+      "type": "json"
+    },
+    "teamStandingsForSeasonJson": {
+      "type": "json"
+    },
+    "raceResultFastestLapForGrandPrixJson": {
+      "type": "json"
     }
   }
 }
