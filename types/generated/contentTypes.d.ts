@@ -1082,6 +1082,10 @@ export interface ApiRaceResultRaceResult extends Schema.CollectionType {
     fastestLap: Attribute.Boolean;
     points: Attribute.Decimal;
     dnf: Attribute.Boolean;
+    finalPos: Attribute.Integer;
+    notes: Attribute.String;
+    fastestLapNo: Attribute.Integer;
+    fastestLapTime: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

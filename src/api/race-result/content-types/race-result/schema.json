@@ -39,6 +39,18 @@
     },
     "dnf": {
       "type": "boolean"
+    },
+    "finalPos": {
+      "type": "integer"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "fastestLapNo": {
+      "type": "integer"
+    },
+    "fastestLapTime": {
+      "type": "string"
     }
   }
 }
