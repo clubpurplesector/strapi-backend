@@ -1044,6 +1044,7 @@ export interface ApiRaceRace extends Schema.CollectionType {
     startTime: Attribute.DateTime;
     identifier: Attribute.String;
     type: Attribute.String;
+    highlights: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1201,6 +1202,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     logo: Attribute.String;
     city: Attribute.String;
     country: Attribute.String;
+    parent: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

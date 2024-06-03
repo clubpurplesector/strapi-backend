@@ -29,6 +29,9 @@
     },
     "country": {
       "type": "string"
+    },
+    "parent": {
+      "type": "string"
     }
   }
 }
