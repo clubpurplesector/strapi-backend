@@ -25,6 +25,9 @@
     },
     "type": {
       "type": "string"
+    },
+    "highlights": {
+      "type": "string"
     }
   }
 }
