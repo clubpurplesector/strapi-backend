@@ -677,6 +677,48 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBannerBanner extends Schema.CollectionType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'banners';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Attribute.String;
+    title: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.String;
+    ctaText: Attribute.String;
+    ctaUrl: Attribute.String;
+    order: Attribute.Integer;
+    startDate: Attribute.DateTime;
+    endDate: Attribute.DateTime;
+    isActive: Attribute.Boolean;
+    bannerColor: Attribute.String;
+    ctaType: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiChassisChassis extends Schema.CollectionType {
   collectionName: 'chassiz';
   info: {
@@ -1336,6 +1378,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::banner.banner': ApiBannerBanner;
       'api::chassis.chassis': ApiChassisChassis;
       'api::config.config': ApiConfigConfig;
       'api::driver.driver': ApiDriverDriver;
