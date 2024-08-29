@@ -924,6 +924,36 @@ export interface ApiFastestLapFastestLap extends Schema.CollectionType {
   };
 }
 
+export interface ApiFeedFeed extends Schema.CollectionType {
+  collectionName: 'feeds';
+  info: {
+    singularName: 'feed';
+    pluralName: 'feeds';
+    displayName: 'Feed';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Attribute.String;
+    description: Attribute.Text;
+    guid: Attribute.String;
+    link: Attribute.String;
+    pubDate: Attribute.String;
+    source: Attribute.String;
+    title: Attribute.String;
+    imageUrl: Attribute.String;
+    enclosure: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::feed.feed', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::feed.feed', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGrandPrixGrandPrix extends Schema.CollectionType {
   collectionName: 'grand_prixes';
   info: {
@@ -1384,6 +1414,7 @@ declare module '@strapi/types' {
       'api::driver.driver': ApiDriverDriver;
       'api::driver-standing.driver-standing': ApiDriverStandingDriverStanding;
       'api::fastest-lap.fastest-lap': ApiFastestLapFastestLap;
+      'api::feed.feed': ApiFeedFeed;
       'api::grand-prix.grand-prix': ApiGrandPrixGrandPrix;
       'api::lap.lap': ApiLapLap;
       'api::pit-stop.pit-stop': ApiPitStopPitStop;
